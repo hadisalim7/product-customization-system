@@ -4,7 +4,7 @@
 This project allows placing a user-uploaded design onto a product image (T-shirt or cap). It also provides an interactive interface to adjust the design and preview the final result.
 
 ## Live Demo
-(Add your Streamlit link here)
+https://customizationsystem.streamlit.app/
 
 ## Features
 - Loads base product image  
