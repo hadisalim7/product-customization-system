@@ -49,9 +49,6 @@ size = st.sidebar.slider("Logo Size", 50, 400, default_size)
 x_pos = st.sidebar.slider("Horizontal Position", 0, 600, default_x)
 y_pos = st.sidebar.slider("Vertical Position", 0, 600, default_y)
 
-# Reset button
-if st.sidebar.button("Reset Position"):
-    st.experimental_rerun()
 
 if uploaded_logo:
     logo = Image.open(uploaded_logo).convert("RGBA")
