@@ -28,13 +28,13 @@ if product == "T-Shirt":
     default_size = 230
     default_x = 260
     default_y = 190
-    base = Image.open("input/tshirt.png").convert("RGBA")
+    base = Image.open("product-customization-system/input/tshirt.png").convert("RGBA")
 
 elif product == "Cap":
     default_size = 150
     default_x = 200
     default_y = 120
-    base = Image.open("input/cap.png").convert("RGBA")
+    base = Image.open("product-customization-system/input/cap.png").convert("RGBA")
 
 # Sidebar controls
 st.sidebar.title("Controls")
