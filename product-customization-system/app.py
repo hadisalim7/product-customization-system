@@ -1,14 +1,17 @@
 import streamlit as st
 from PIL import Image
 import io
+import os
 
 st.set_page_config(page_title="Product Customization", layout="centered")
+
+# Base directory
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # Title & Description
 st.title("🧥 Product Customization System")
 st.write("Upload your design and adjust it to preview how it looks on products.")
 
-# How it works
 st.markdown("### How it works")
 st.write("1. Upload your logo")
 st.write("2. Choose a product")
@@ -23,18 +26,20 @@ uploaded_logo = st.file_uploader("Upload your design (logo)", type=["png", "jpg"
 # Product selection
 product = st.selectbox("Select product", ["T-Shirt", "Cap"])
 
-# Default values based on product
+# Load base image safely
 if product == "T-Shirt":
     default_size = 230
     default_x = 260
     default_y = 190
-    base = Image.open("product-customization-system/input/tshirt.png").convert("RGBA")
+    base_path = os.path.join(BASE_DIR, "input", "tshirt.png")
 
 elif product == "Cap":
     default_size = 150
     default_x = 200
     default_y = 120
-    base = Image.open("product-customization-system/input/cap.png").convert("RGBA")
+    base_path = os.path.join(BASE_DIR, "input", "cap.png")
+
+base = Image.open(base_path).convert("RGBA")
 
 # Sidebar controls
 st.sidebar.title("Controls")
@@ -63,12 +68,12 @@ if uploaded_logo:
     # Resize
     logo.thumbnail((size, size))
 
-    # Blend
+    # Blend effect
     alpha = logo.split()[3]
     alpha = alpha.point(lambda p: int(p * 0.8))
     logo.putalpha(alpha)
 
-    # Apply
+    # Apply logo
     base.paste(logo, (x_pos, y_pos), logo)
 
     # Preview
