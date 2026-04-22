@@ -18,3 +18,13 @@ This project allows placing a user-uploaded design onto a product image (t-shirt
 - No perspective transformation
 - No wrinkle simulation
 - Basic blending only
+
+## Approach
+The problem was broken down into smaller steps:
+1. Load base product image and user design
+2. Remove background from design using pixel filtering
+3. Resize and position the design in the print area
+4. Blend the design slightly to match the product surface
+5. Save the final customized image
+
+This approach focuses on building a clean and functional pipeline rather than complex rendering.
